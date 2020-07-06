@@ -8,7 +8,6 @@ alias S='ls'
 alias L='ls'
 
 # alias
-alias final='cd ~/Dropbox/SUFOO/Courses/CMPT_300'
 alias rm='rm -i'
 alias mv='mv -i'
 alias gs='git status'

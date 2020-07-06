@@ -56,11 +56,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " bundle Plugins
-Plugin 'neoclide/coc.nvim'
 Plugin 'itchyny/lightline.vim'  " lightline
 Plugin 'tpope/vim-surround'     " surround text
 Plugin 'epmatsw/ag.vim'         " ag search
-Plugin 'vimwiki/vimwiki'        " vimwiki
 Plugin 'yggdroot/indentline'    " indentation lines
 Plugin 'preservim/nerdtree'     " directory explorer
 Plugin 'junegunn/fzf'           " file search
@@ -90,21 +88,3 @@ au FileType vimwiki setlocal shiftwidth=4 tabstop=4 expandtab
 " Indentline
 set conceallevel=1
 let g:indentLine_conceallevel=1
-
-" Coc
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> <leader>y <Plug>(coc-type-definition)
-nmap <silent> <leader>i <Plug>(coc-implementation)
-nmap <silent> <leader>r <Plug>(coc-references)
