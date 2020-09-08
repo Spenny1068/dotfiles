@@ -15,7 +15,9 @@ alias grep='ggrep --color=auto'
 alias inputrc='vim ~/.inputrc'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
+alias muttrc='vim ~/.mutt/muttrc'
 alias ff='cd; vim $(fzf)'
+alias f.='cd; vim $(find ~ | fzf)'
 
 fd() {
     cd ~
@@ -25,6 +27,7 @@ fd() {
 }
 
 # too longgggg
+alias ip_address="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias git_graph="git log --oneline --graph --color --all --decorate"
 
 # empty a file

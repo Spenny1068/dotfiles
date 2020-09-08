@@ -1,6 +1,6 @@
 syntax on
 set number          " show line numbers
-set relativenumber
+set relativenumber  " line numbers are relative
 set hlsearch        " highlight searched word 
 set incsearch       " highlight while typing
 set shiftround      " round indents to multiple of shiftwidth
@@ -18,10 +18,7 @@ set autoindent
 set noerrorbells    " disable beep on errors
 set background=dark
 set nobackup
-
-" colorschemes
-colorscheme gruvbox
-""colorscheme stellarized
+set backspace=indent,eol,start
 
 " key Mappings
 let mapleader = " "
@@ -30,21 +27,9 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+inoremap {} {<CR>}<Esc>O
 
-" ,. to run program
-map ,. :call RunProgram()<CR>
-func! RunProgram()
-    if (&ft=='cpp' || &ft=='c')
-        :!make
-    elseif (&ft=='python')
-        :!python3 %
-    elseif (&ft=='sh')
-        :!sh %
-    elseif (&ft=='perl')
-        :!perl %
-    endif
-endfunc
-
+" required for vundle
 set nocompatible
 filetype off
 
@@ -59,13 +44,20 @@ call vundle#begin()
 Plugin 'itchyny/lightline.vim'  " lightline
 Plugin 'tpope/vim-surround'     " surround text
 Plugin 'epmatsw/ag.vim'         " ag search
+Plugin 'vimwiki/vimwiki'        " vimwiki
 Plugin 'yggdroot/indentline'    " indentation lines
 Plugin 'preservim/nerdtree'     " directory explorer
 Plugin 'junegunn/fzf'           " file search
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-commentary'   " comments
+Plugin 'gruvbox-community/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
+
+" colorschemes
+colorscheme gruvbox
+""colorscheme stellarized
 
 " lightline
 set laststatus=2
@@ -75,15 +67,19 @@ let g:lightline = { 'colorscheme':'seoul256', }
 nnoremap <leader>s :Ag<space>
 let g:ag_working_path_mode="r"
 
-" FZF
+" fzf
 nnoremap <leader>f :Files<CR>
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 " NerdTree
 nnoremap <Leader>pv :NERDTreeFind<CR> :vertical resize 30<CR>
 
 " vim wiki"
-let g:vimwiki_list = [{'path': '~/.vim/wiki/', 'syntax': 'markdown'}]
+let g:vimwiki_list = [{'path':'~/.vim/wiki'}]"
 au FileType vimwiki setlocal shiftwidth=4 tabstop=4 expandtab
+filetype off
+filetype plugin on
+syntax on
 
 " Indentline
 set conceallevel=1
