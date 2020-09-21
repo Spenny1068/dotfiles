@@ -15,7 +15,6 @@ alias grep='ggrep --color=auto'
 alias inputrc='vim ~/.inputrc'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
-alias muttrc='vim ~/.mutt/muttrc'
 alias ff='cd; vim $(fzf)'
 alias f.='cd; vim $(find ~ | fzf)'
 
@@ -34,3 +33,5 @@ alias git_graph="git log --oneline --graph --color --all --decorate"
 cl() { 
     cat /dev/null > $1 
 }
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -41,23 +41,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " bundle Plugins
-Plugin 'itchyny/lightline.vim'  " lightline
-Plugin 'tpope/vim-surround'     " surround text
-Plugin 'epmatsw/ag.vim'         " ag search
-Plugin 'vimwiki/vimwiki'        " vimwiki
-Plugin 'yggdroot/indentline'    " indentation lines
-Plugin 'preservim/nerdtree'     " directory explorer
-Plugin 'junegunn/fzf'           " file search
+Plugin 'itchyny/lightline.vim'      " lightline
+Plugin 'tpope/vim-surround'         " surround text
+Plugin 'epmatsw/ag.vim'             " ag search
+Plugin 'vimwiki/vimwiki'            " vimwiki
+Plugin 'yggdroot/indentline'        " indentation lines
+Plugin 'preservim/nerdtree'         " directory explorer
+Plugin 'junegunn/fzf'               " file search
 Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-commentary'   " comments
-Plugin 'gruvbox-community/gruvbox'
+Plugin 'tpope/vim-commentary'       " comments
+Plugin 'gruvbox-community/gruvbox'  " colorscheme
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'Spenny1068/ciBracket'       " heh
 
 call vundle#end()
-filetype plugin indent on
 
-" colorschemes
+filetype plugin indent on
 colorscheme gruvbox
-""colorscheme stellarized
 
 " lightline
 set laststatus=2
@@ -69,6 +69,7 @@ let g:ag_working_path_mode="r"
 
 " fzf
 nnoremap <leader>f :Files<CR>
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 " NerdTree
@@ -84,3 +85,14 @@ syntax on
 " Indentline
 set conceallevel=1
 let g:indentLine_conceallevel=1
+
+" Haskell-vim
+syntax on
+filetype plugin indent on
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1
