@@ -52,7 +52,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 " bundle Plugins
 call vundle#begin()
-Plugin 'neoclide/coc.nvim'          " coc
 Plugin 'itchyny/lightline.vim'      " lightline
 Plugin 'tpope/vim-surround'         " surround text
 Plugin 'epmatsw/ag.vim'             " ag search
@@ -113,8 +112,5 @@ let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1
 
-" Obsessoin
+" Obsession
 nnoremap <leader>S :Obsess<CR>
-
-" Coc
-source ~/.vim/startup/.coc_config.vim

@@ -33,5 +33,3 @@ alias git_graph="git log --oneline --graph --color --all --decorate"
 cl() { 
     cat /dev/null > $1 
 }
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
