@@ -52,6 +52,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 " bundle Plugins
 call vundle#begin()
+Plugin 'neoclide/coc.nvim'          " coc
 Plugin 'itchyny/lightline.vim'      " lightline
 Plugin 'tpope/vim-surround'         " surround text
 Plugin 'epmatsw/ag.vim'             " ag search
@@ -65,6 +66,7 @@ Plugin 'gruvbox-community/gruvbox'  " colorscheme
 Plugin 'neovimhaskell/haskell-vim'  " haskell highlighting
 Plugin 'Spenny1068/ciBracket'       " woot
 Plugin 'tpope/vim-obsession'        " vim sessions
+Plugin 'qxxxb/vim-searchhi'         " highlight current search
 call vundle#end()
 
 " ===================== Plugin specific configurations =========================
@@ -75,7 +77,12 @@ colorscheme gruvbox
 set laststatus=2
 let g:lightline = { 'colorscheme':'seoul256', }
 
+" searchhi
+nmap n <Plug>(searchhi-n)
+nmap N <Plug>(searchhi-N)
+
 " Ag
+nnoremap <leader>s :Ag<space>
 let g:ag_working_path_mode="r"
 
 " fzf
@@ -106,6 +113,8 @@ let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1
 
-" Obsession
+" Obsessoin
 nnoremap <leader>S :Obsess<CR>
 
+" Coc
+source ~/.vim/startup/.coc_config.vim
