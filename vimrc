@@ -20,6 +20,8 @@ set nobackup        " no backup files
 set history=300     " vim history
 set backspace=indent,eol,start
 set background=dark
+set mouse=a
+" set t_Co=256
 
 if has('autocmd')
     filetype plugin indent on
@@ -39,6 +41,17 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 inoremap {} {<CR>}<Esc>O
 
+function! ClearRegisters()
+    let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i = 0
+    while (i < strlen(regs))
+        exec 'let @'.regs[i].i=""'
+        let i = i + 1
+    endwhile
+endfunction
+
+command! ClearRegisters call ClearRegisters()
+
 " swift syntax highlighting
 set rtp+=~/.vim/bundle/swift.vim
 
@@ -52,6 +65,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 " bundle Plugins
 call vundle#begin()
+" Plugin 'neoclide/coc.nvim'          " coc
 Plugin 'itchyny/lightline.vim'      " lightline
 Plugin 'tpope/vim-surround'         " surround text
 Plugin 'epmatsw/ag.vim'             " ag search
@@ -80,14 +94,20 @@ let g:lightline = { 'colorscheme':'seoul256', }
 nmap n <Plug>(searchhi-n)
 nmap N <Plug>(searchhi-N)
 
+" highlight CurrentSearch
+"     \ cterm=reverse,bold ctermfg=108 ctermbg=235
+"     \ gui=reverse, bold guifg=#8ec07c guibg=#282828
+
+" highlight link SearchCursor WarningMsg
+
 " Ag
 nnoremap <leader>s :Ag<space>
 let g:ag_working_path_mode="r"
 
 " fzf
 nnoremap <leader>f :Files<CR>
-let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 " vim wiki"
 let g:vimwiki_list = [{'path':'~/.vim/wiki'}]"
@@ -97,6 +117,8 @@ syntax on
 
 " NerdTree
 nnoremap <Leader>pv :NERDTreeFind<CR> :vertical resize 30<CR>
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
 
 " Indentline
 set conceallevel=1
@@ -114,3 +136,11 @@ let g:haskell_backpack = 1
 
 " Obsession
 nnoremap <leader>S :Obsess<CR>
+
+" Coc
+" source ~/.vim/startup/coc_bindings.vim
+" let g:coc_disable_startup_warning = 1
+
+" Ctags
+" set tags=./tags;/
+" map <leader>d <C-}>
