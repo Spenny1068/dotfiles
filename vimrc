@@ -40,6 +40,11 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 inoremap {} {<CR>}<Esc>O
+nnoremap <leader>e :tabedit<CR>
+nnoremap <leader>ev :tabedit ~/.vimrc<CR>
+nnoremap <leader>eb :tabedit ~/.bashrc<CR>
+" copy to system clipboard (must use visual select)
+noremap <leader>y "*y
 
 function! ClearRegisters()
     let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
