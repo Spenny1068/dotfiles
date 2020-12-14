@@ -44,7 +44,6 @@ inoremap {} {<CR>}<Esc>O
 nnoremap <leader>e :tabedit<CR>
 nnoremap <leader>ev :tabedit ~/.vimrc<CR>
 nnoremap <leader>eb :tabedit ~/.bashrc<CR>
-nnoremap 0 ^
 " copy to system clipboard (must use visual select)
 noremap <leader>y "*y
 nnoremap <leader>cl :%s/\%x00//g<CR>
