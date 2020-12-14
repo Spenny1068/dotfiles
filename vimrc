@@ -4,24 +4,25 @@ set relativenumber  " line numbers are relative
 set hlsearch        " highlight searched word 
 set incsearch       " highlight while typing
 set shiftround      " round indents to multiple of shiftwidth
-set tabstop=4       " spaces per tab
-set softtabstop=4   " spaces per tab while editing
-set shiftwidth=4    " spaces per shift
+set tabstop=3       " spaces per tab
+set softtabstop=3   " spaces per tab while editing
+set shiftwidth=3    " spaces per shift
 set expandtab       " tabs are spaces
-set smartcase       " case-sensitive only when query contains uppercase letter
 set linebreak       " avoid wrapping a line in the middle of a word
 set ruler           " show column number bottom right
 set noswapfile      " no swapfiles
 set cursorline      " highlight the current line
 set cindent
 set autoindent      " try best to indent
-set noerrorbells    " disable beep on errors
 set nobackup        " no backup files
 set history=300     " vim history
 set backspace=indent,eol,start
 set background=dark
-set mouse=a
+set smartcase       " case-sensitive only when query contains uppercase letter
+set ignorecase
+" set mouse=a
 " set t_Co=256
+" set noerrorbells    " disable beep on errors
 
 if has('autocmd')
     filetype plugin indent on
@@ -45,6 +46,10 @@ nnoremap <leader>ev :tabedit ~/.vimrc<CR>
 nnoremap <leader>eb :tabedit ~/.bashrc<CR>
 " copy to system clipboard (must use visual select)
 noremap <leader>y "*y
+nnoremap <leader>cl :%s/\%x00//g<CR>
+nnoremap <leader>cl2 :%s/\r//g<CR>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 function! ClearRegisters()
     let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
@@ -99,11 +104,9 @@ let g:lightline = { 'colorscheme':'seoul256', }
 nmap n <Plug>(searchhi-n)
 nmap N <Plug>(searchhi-N)
 
-" highlight CurrentSearch
-"     \ cterm=reverse,bold ctermfg=108 ctermbg=235
-"     \ gui=reverse, bold guifg=#8ec07c guibg=#282828
-
-" highlight link SearchCursor WarningMsg
+highlight CurrentSearch
+    \ cterm=reverse,bold ctermfg=108 ctermbg=235
+    \ gui=reverse, bold guifg=#8ec07c guibg=#282828
 
 " Ag
 nnoremap <leader>s :Ag<space>
@@ -114,7 +117,7 @@ nnoremap <leader>f :Files<CR>
 " let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 " let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
-" vim wiki"
+" vim wiki
 let g:vimwiki_list = [{'path':'~/.vim/wiki'}]"
 au FileType vimwiki setlocal shiftwidth=4 tabstop=4 expandtab
 filetype off
