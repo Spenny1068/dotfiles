@@ -4,9 +4,9 @@ set relativenumber  " line numbers are relative
 set hlsearch        " highlight searched word 
 set incsearch       " highlight while typing
 set shiftround      " round indents to multiple of shiftwidth
-set tabstop=3       " spaces per tab
-set softtabstop=3   " spaces per tab while editing
-set shiftwidth=3    " spaces per shift
+set tabstop=4       " spaces per tab
+set softtabstop=4   " spaces per tab while editing
+set shiftwidth=4    " spaces per shift
 set expandtab       " tabs are spaces
 set linebreak       " avoid wrapping a line in the middle of a word
 set ruler           " show column number bottom right
@@ -20,6 +20,8 @@ set backspace=indent,eol,start
 set background=dark
 set smartcase       " case-sensitive only when query contains uppercase letter
 set ignorecase
+" set clipboard=unnamed " yank to system clipboard
+" set wildignore=*.o,*.obj,*bak,*.exe
 " set mouse=a
 " set t_Co=256
 " set noerrorbells    " disable beep on errors
@@ -44,7 +46,6 @@ inoremap {} {<CR>}<Esc>O
 nnoremap <leader>e :tabedit<CR>
 nnoremap <leader>ev :tabedit ~/.vimrc<CR>
 nnoremap <leader>eb :tabedit ~/.bashrc<CR>
-" copy to system clipboard (must use visual select)
 noremap <leader>y "*y
 nnoremap <leader>cl :%s/\%x00//g<CR>
 nnoremap <leader>cl2 :%s/\r//g<CR>
@@ -114,7 +115,7 @@ let g:ag_working_path_mode="r"
 
 " fzf
 nnoremap <leader>f :Files<CR>
-" let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 " let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 " vim wiki
@@ -133,14 +134,14 @@ set conceallevel=1
 let g:indentLine_conceallevel=1
 
 " Haskell-vim
-syntax on
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1
+" syntax on
+" let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+" let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+" let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+" let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+" let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+" let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+" let g:haskell_backpack = 1
 
 " Obsession
 nnoremap <leader>S :Obsess<CR>
