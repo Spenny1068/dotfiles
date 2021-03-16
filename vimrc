@@ -105,9 +105,9 @@ let g:lightline = { 'colorscheme':'seoul256', }
 nmap n <Plug>(searchhi-n)
 nmap N <Plug>(searchhi-N)
 
-highlight CurrentSearch
-    \ cterm=reverse,bold ctermfg=108 ctermbg=235
-    \ gui=reverse, bold guifg=#8ec07c guibg=#282828
+" highlight CurrentSearch
+"     \ cterm=reverse,bold ctermfg=108 ctermbg=235
+"     \ gui=reverse, bold guifg=#8ec07c guibg=#282828
 
 " Ag
 nnoremap <leader>s :Ag<space>
