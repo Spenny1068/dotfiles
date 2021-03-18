@@ -51,6 +51,10 @@ nnoremap <leader>cl :%s/\%x00//g<CR>
 nnoremap <leader>cl2 :%s/\r//g<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+nnoremap 'a 'azt
+nnoremap 's 'szt
+nnoremap 'd 'dzt
+nnoremap 'f 'fzt
 
 function! ClearRegisters()
     let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
