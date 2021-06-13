@@ -95,6 +95,8 @@ Plugin 'neovimhaskell/haskell-vim'  " haskell highlighting
 Plugin 'Spenny1068/ciBracket'       " woot
 Plugin 'tpope/vim-obsession'        " vim sessions
 Plugin 'qxxxb/vim-searchhi'         " highlight current search
+" Plugin 'lervag/vimtex'              " LaTeX
+" Plugin 'SirVer/ultisnips'           " snippets
 call vundle#end()
 
 " ===================== Plugin specific configurations =========================
@@ -157,3 +159,16 @@ nnoremap <leader>S :Obsess<CR>
 " Ctags
 " set tags=./tags;/
 " map <leader>d <C-}>
+"
+" Vimtex
+" highlight clear Conceal
+" let g:tex_flavor='latex'
+" let g:vimtex_complete_enabled=1
+" let g:vimtex_view_method = 'skim'
+" let g:vimtex_quickfix_mode=0
+" let g:tex_conceal='abdmg'
+" au BufEnter *.tex highlight clear Conceal
+
+" Ultisnips
+" let g:UltiSnipsExpandTrigger = "<s-tab>"
+
