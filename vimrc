@@ -170,5 +170,5 @@ nnoremap <leader>S :Obsess<CR>
 " au BufEnter *.tex highlight clear Conceal
 
 " Ultisnips
-" let g:UltiSnipsExpandTrigger = "<s-tab>"
+" let g:UltiSnipsExpandTrigger = '<s-tab>'
 
