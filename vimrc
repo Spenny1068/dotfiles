@@ -49,6 +49,7 @@ nnoremap <leader>eb :tabedit ~/.bashrc<CR>
 noremap <leader>y "*y
 nnoremap <leader>cl :%s/\%x00//g<CR>
 nnoremap <leader>cl2 :%s/\r//g<CR>
+nnoremap <bs> <c-^>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 nnoremap 'a 'azt
@@ -56,15 +57,22 @@ nnoremap 's 'szt
 nnoremap 'd 'dzt
 nnoremap 'f 'fzt
 
+" =========================== Functions ===================================
+function! ClearTrailingSpace()
+    call feedkeys(':%s/\s\+$//e', 't')
+    call feedkeys("\<CR>")
+endfunction
+
 function! ClearRegisters()
-    let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
-    let i = 0
-    while (i < strlen(regs))
-        exec 'let @'.regs[i].i=""'
-        let i = i + 1
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
     endwhile
 endfunction
 
+command! ClearTrailingSpace call ClearTrailingSpace()
 command! ClearRegisters call ClearRegisters()
 
 " swift syntax highlighting
