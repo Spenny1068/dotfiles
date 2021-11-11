@@ -56,6 +56,9 @@ nnoremap 'a 'azt
 nnoremap 's 'szt
 nnoremap 'd 'dzt
 nnoremap 'f 'fzt
+nnoremap } :keepjumps normal! }<cr>
+nnoremap { :keepjumps normal! {<cr>
+nnoremap ? :noh<CR><CR>
 
 " =========================== Functions ===================================
 function! ClearTrailingSpace()
