@@ -1,0 +1,113 @@
+{
+    // vscode core
+    "workbench.colorTheme": "Monokai",
+    "workbench.editor.untitled.hint": "hidden",
+    "editor.minimap.enabled": false,
+    "files.autoSave": "afterDelay",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingDelete": "never",
+    "editor.autoClosingOvertype": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoSurround": "never",
+    "window.zoomLevel": 1,
+
+    // code-runner extension
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "c": "cd $dir && gcc *.c -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ *.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "python": "python -u",
+        "perl": "perl",
+        "go": "go run",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "shellscript": "bash",
+        "typescript": "ts-node",
+        "julia": "julia",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+    },
+
+    // todohighlight extension
+    "todohighlight.keywords": [
+        "DEBUG:",
+        "REVIEW:",
+        {
+            "text": "NOTE:",
+            "color": "green",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "HACK:",
+            "color": "red",
+            "isWholeLine": false,
+        },
+        {
+            "text": "TODO:",
+            "color": "red",
+            "border": "1px solid red",
+            "borderRadius": "2px", //NOTE: using borderRadius along with `border` or you will see nothing change
+            "backgroundColor": "rgba(0,0,0,.2)",
+            //other styling properties goes here ... 
+        }
+    ],
+
+    // vim set
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+
+    // vim nnoremap
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>", "d"],
+            "after": ["g", "d"]
+        },
+
+        {
+            "before": ["0"],
+            "after": ["^"]
+        },
+
+        {
+            "before": ["'", "a"],
+            "after": ["'", "a", "z", "t"]
+        },
+
+        {
+            "before": ["'", "s"],
+            "after": ["'", "s", "z", "t"]
+        },
+
+        {
+            "before": ["'", "d"],
+            "after": ["'", "d", "z", "t"]
+        },
+
+        {
+            "before": ["'", "f"],
+            "after": ["'", "f", "z", "t"]
+        },
+
+        {
+            "before": ["<space>", "r"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToReferences",
+                    "args": []
+                }
+            ]
+        }
+    ],
+
+    // vim inoremap
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["{", "}"],
+            "after": ["{", "<CR>", "}", "<Esc>", "O"]
+        },
+    ],
+}
