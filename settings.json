@@ -1,6 +1,6 @@
 {
     // vscode core
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Visual Studio Dark - C++",
     "workbench.editor.untitled.hint": "hidden",
     "editor.minimap.enabled": false,
     "files.autoSave": "afterDelay",
@@ -61,53 +61,22 @@
 
     // vim nnoremap
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<space>", "d"],
-            "after": ["g", "d"]
-        },
+        { "before": ["<space>", "d"], "after": ["g", "d"] },        // go to definition
 
-        {
-            "before": ["0"],
-            "after": ["^"]
-        },
+        { "before": ["0"], "after": ["^"] },                         
 
-        {
-            "before": ["'", "a"],
-            "after": ["'", "a", "z", "t"]
-        },
+        { "before": ["'", "a"], "after": ["'", "a", "z", "t"] },    // mark is at top of file
+        { "before": ["'", "s"], "after": ["'", "s", "z", "t"] },
+        { "before": ["'", "d"], "after": ["'", "d", "z", "t"] },
+        { "before": ["'", "f"], "after": ["'", "f", "z", "t"] },
 
-        {
-            "before": ["'", "s"],
-            "after": ["'", "s", "z", "t"]
-        },
-
-        {
-            "before": ["'", "d"],
-            "after": ["'", "d", "z", "t"]
-        },
-
-        {
-            "before": ["'", "f"],
-            "after": ["'", "f", "z", "t"]
-        },
-
-        {
-            "before": ["<space>", "r"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.goToReferences",
-                    "args": []
-                }
-            ]
-        }
+        { "before": ["<space>", "r"], "commands": [ { "command": "editor.action.goToReferences", } ] },
+        { "before": ["<space>", "f"], "commands": [ { "command": "workbench.action.showCommands" } ] }.
+        { "before": ["<space>", "p", "v"], "commands": [ { "command": "workbench.action.toggleSidebarVisibility" } ] }
     ],
 
     // vim inoremap
     "vim.insertModeKeyBindingsNonRecursive": [
-        {
-            "before": ["{", "}"],
-            "after": ["{", "<CR>", "}", "<Esc>", "O"]
-        },
-    ],
+        { "before": ["{", "}"], "after": ["{", "<CR>", "}", "<Esc>", "O"] },    //
+    ]
 }
