@@ -1,6 +1,6 @@
 {
     // vscode core
-    "workbench.colorTheme": "Visual Studio Dark - C++",
+    "workbench.colorTheme": "Gruvbox Dark Soft",
     "workbench.editor.untitled.hint": "hidden",
     "editor.minimap.enabled": false,
     "files.autoSave": "afterDelay",
@@ -9,7 +9,12 @@
     "editor.autoClosingOvertype": "never",
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
-    "window.zoomLevel": 1,
+    "editor.renderLineHighlight": "all",
+
+    "workbench.colorCustomizations":  { 
+        "editor.lineHighlightBackground": "#e8ddbe20",
+        "peekViewEditor.matchHighlightBackground": "#f0f08d50",
+    },
 
     // code-runner extension
     "code-runner.runInTerminal": true,
@@ -33,24 +38,14 @@
     "todohighlight.keywords": [
         "DEBUG:",
         "REVIEW:",
-        {
-            "text": "NOTE:",
-            "color": "green",
-            "backgroundColor": "yellow",
-            "overviewRulerColor": "grey"
-        },
-        {
-            "text": "HACK:",
-            "color": "red",
-            "isWholeLine": false,
-        },
-        {
-            "text": "TODO:",
+        { "text": "NOTE:", "color": "green", "backgroundColor": "yellow", "overviewRulerColor": "grey" },
+        { "text": "HACK:", "color": "red", "isWholeLine": false, },
+
+        { "text": "TODO:",
             "color": "red",
             "border": "1px solid red",
             "borderRadius": "2px", //NOTE: using borderRadius along with `border` or you will see nothing change
             "backgroundColor": "rgba(0,0,0,.2)",
-            //other styling properties goes here ... 
         }
     ],
 
@@ -61,22 +56,30 @@
 
     // vim nnoremap
     "vim.normalModeKeyBindingsNonRecursive": [
-        { "before": ["<space>", "d"], "after": ["g", "d"] },        // go to definition
 
+        // non-leader key stuff
         { "before": ["0"], "after": ["^"] },                         
+        { "before": ["'", "A"], "after": ["'", "A", "z", "t"] },    // mark is at top of file
+        { "before": ["'", "S"], "after": ["'", "S", "z", "t"] },
+        { "before": ["'", "D"], "after": ["'", "D", "z", "t"] },
+        { "before": ["'", "F"], "after": ["'", "F", "z", "t"] },
+        // { "before": ["K"], "commands": [ { "command": "editor.action.moveLinesUpAction" } ] }
+        // { "before": ["J"], "commands": [ { "command": "editor.action.moveLinesDownAction" } ] }
 
-        { "before": ["'", "a"], "after": ["'", "a", "z", "t"] },    // mark is at top of file
-        { "before": ["'", "s"], "after": ["'", "s", "z", "t"] },
-        { "before": ["'", "d"], "after": ["'", "d", "z", "t"] },
-        { "before": ["'", "f"], "after": ["'", "f", "z", "t"] },
-
+        // leader key stuff
+        { "before": ["<space>", "d"], "after": ["g", "d"] },
+        { "before": ["<space>", "D"], "commands": [ { "command": "editor.action.revealDefinitionAside", } ] },
         { "before": ["<space>", "r"], "commands": [ { "command": "editor.action.goToReferences", } ] },
-        { "before": ["<space>", "f"], "commands": [ { "command": "workbench.action.showCommands" } ] }.
-        { "before": ["<space>", "p", "v"], "commands": [ { "command": "workbench.action.toggleSidebarVisibility" } ] }
+        { "before": ["<space>", "f"], "commands": [ { "command": "workbench.action.showCommands" } ] },
+        { "before": ["<space>", "p", "v"], "commands": [ { "command": "workbench.action.toggleSidebarVisibility" } ] },
+        { "before": ["<space>", "s"], "commands": [ { "command": "workbench.action.findInFiles" } ] }
+        { "before": ["<space>", "v"], "commands": [ { "command": "workbench.action.splitEditor" } ] }
+        { "before": ["<space>", "h"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] }
+        { "before": ["<space>", "l"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] }
     ],
 
     // vim inoremap
     "vim.insertModeKeyBindingsNonRecursive": [
-        { "before": ["{", "}"], "after": ["{", "<CR>", "}", "<Esc>", "O"] },    //
+        { "before": ["{", "}"], "after": ["{", "<CR>", "}", "<Esc>", "O"] }
     ]
 }
