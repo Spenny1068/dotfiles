@@ -60,6 +60,10 @@ nnoremap } :keepjumps normal! }<cr>
 nnoremap { :keepjumps normal! {<cr>
 nnoremap ? :noh<CR><CR>
 
+" tab instead of <C-n>
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
 " =========================== Functions ===================================
 function! ClearTrailingSpace()
     call feedkeys(':%s/\s\+$//e', 't')
