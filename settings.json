@@ -72,10 +72,14 @@
         { "before": ["<space>", "r"], "commands": [ { "command": "editor.action.goToReferences", } ] },
         { "before": ["<space>", "f"], "commands": [ { "command": "workbench.action.showCommands" } ] },
         { "before": ["<space>", "p", "v"], "commands": [ { "command": "workbench.action.toggleSidebarVisibility" } ] },
-        { "before": ["<space>", "s"], "commands": [ { "command": "workbench.action.findInFiles" } ] }
-        { "before": ["<space>", "v"], "commands": [ { "command": "workbench.action.splitEditor" } ] }
-        { "before": ["<space>", "h"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] }
-        { "before": ["<space>", "l"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] }
+        { "before": ["<space>", "s"], "commands": [ { "command": "workbench.action.findInFiles" } ] },
+        { "before": ["<space>", "v"], "commands": [ { "command": "workbench.action.splitEditor" } ] },
+        { "before": ["<space>", "h"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] },
+        { "before": ["<space>", "l"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] },
+
+        // vscode vim is broken
+        { "before": ["<C-o>"], "commands": [ { "command": "workbench.action.navigateBack" } ] },
+        { "before": ["<C-i>"], "commands": [ { "command": "workbench.action.navigateForward" } ] }
     ],
 
     // vim inoremap
