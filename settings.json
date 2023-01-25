@@ -1,8 +1,14 @@
 {
-    // vscode core
-    "workbench.colorTheme": "Gruvbox Dark Soft",
+    // ====== C/C++ Extension ========
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: WebKit, IndentCaseLabels: true, BreakBeforeBraces: Allman, AlignTrailingComments: true }",
+
+    // fix conflict with C/C++ extension and clangd
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+
+    // ========= vscode core =========
     "workbench.editor.untitled.hint": "hidden",
-    "editor.minimap.enabled": false,
     "files.autoSave": "afterDelay",
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingDelete": "never",
@@ -10,31 +16,13 @@
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
     "editor.renderLineHighlight": "all",
+    // "search.exclude": {
+    //     "**/<somedir>*": true,
+    //     "**/<somefile.txt>": true
+    // },
 
-    "workbench.colorCustomizations":  { 
-        "editor.lineHighlightBackground": "#e8ddbe20",
-        "peekViewEditor.matchHighlightBackground": "#f0f08d50",
-    },
 
-    // code-runner extension
-    "code-runner.runInTerminal": true,
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "c": "cd $dir && gcc *.c -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ *.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "python": "python -u",
-        "perl": "perl",
-        "go": "go run",
-        "powershell": "powershell -ExecutionPolicy ByPass -File",
-        "shellscript": "bash",
-        "typescript": "ts-node",
-        "julia": "julia",
-        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "haskell": "runhaskell",
-    },
-
-    // todohighlight extension
+    // ========= todohighlight extension =========
     "todohighlight.keywords": [
         "DEBUG:",
         "REVIEW:",
@@ -49,10 +37,12 @@
         }
     ],
 
+    // ========= VIM Extension =========
     // vim set
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
+    "vim.smartRelativeLine": true,
 
     // vim nnoremap
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -72,18 +62,43 @@
         { "before": ["<space>", "r"], "commands": [ { "command": "editor.action.goToReferences", } ] },
         { "before": ["<space>", "f"], "commands": [ { "command": "workbench.action.showCommands" } ] },
         { "before": ["<space>", "p", "v"], "commands": [ { "command": "workbench.action.toggleSidebarVisibility" } ] },
-        { "before": ["<space>", "s"], "commands": [ { "command": "workbench.action.findInFiles" } ] },
+        { "before": ["<space>", "s"], "after": ["y", "i", "w"], "commands": [ { "command": "workbench.action.findInFiles" } ] },
+        // { "before": ["<space>", "s"], "commands": [ { "command": "workbench.action.findInFiles" } ] },
         { "before": ["<space>", "v"], "commands": [ { "command": "workbench.action.splitEditor" } ] },
-        { "before": ["<space>", "h"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] },
-        { "before": ["<space>", "l"], "commands": [ { "command": "workbench.action.focusNextGroup" } ] },
-
+        { "before": ["<space>", "h"], "commands": [ { "command": "workbench.action.splitEditor" }, {"command": "workbench.action.toggleEditorGroupLayout" } ] },
+  
         // vscode vim is broken
-        { "before": ["<C-o>"], "commands": [ { "command": "workbench.action.navigateBack" } ] },
-        { "before": ["<C-i>"], "commands": [ { "command": "workbench.action.navigateForward" } ] }
+        { "before": ["<C-o>"], "commands": [ { "command": "workbench.action.navigateBack", } ] },
+        { "before": ["<C-i>"], "commands": [ { "command": "workbench.action.navigateForward", } ] }
     ],
 
     // vim inoremap
     "vim.insertModeKeyBindingsNonRecursive": [
         { "before": ["{", "}"], "after": ["{", "<CR>", "}", "<Esc>", "O"] }
-    ]
+    ],
+
+    // ======== Aesthetics =========
+    "workbench.colorTheme": "Gruvbox Dark Soft",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+
+    // custom colors
+    "workbench.colorCustomizations": {
+		"selection.background": "#ebeb0f",
+		"editor.findMatchBackground": "#b6b6369f",
+		"editor.background": "#31312f",
+		"tab.activeBackground": "#666666",
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "#cac7b8"
+    },
+
+    "security.workspace.trust.untrustedFiles": "open",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "editor.stickyScroll.enabled": true,
+    "extensions.autoUpdate": false,
+    "editor.minimap.enabled": false,
+
 }
