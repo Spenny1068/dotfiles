@@ -82,14 +82,19 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
-
+	
     // custom colors
     "workbench.colorCustomizations": {
-		"selection.background": "#ebeb0f",
-		"editor.findMatchBackground": "#b6b6369f",
-		"editor.background": "#31312f",
-		"tab.activeBackground": "#666666",
+	"selection.background": "#ebeb0f",
+	"editor.findMatchBackground": "#b6b6369f",
+	"editor.background": "#31312f",
+	"tab.activeBackground": "#666666",                  // active tab background
+        "sideBar.background": "#31312F",                    // filetree background
+        "sideBar.foreground": "#dddddd",                    // filetree text
+        "editor.lineHighlightBackground": "#fc7e0857",      // gutter background
+        "editorLineNumber.foreground": "#999999"            // line numbers
     },
+	
     "editor.tokenColorCustomizations": {
         "comments": "#cac7b8"
     },
